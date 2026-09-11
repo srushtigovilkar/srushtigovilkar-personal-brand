@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srushti Govilkar | Strategic Communication, CSR & Academic Portfolio</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        },
+                        amberGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Cambria', 'serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        /* Custom Glowing & Visual Accent Utilities */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(60px);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        /* Vertical Timeline Connector Lines */
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            bottom: 1.5rem;
+            left: 1.25rem;
+            width: 3px;
+            background: linear-gradient(to bottom, #2563eb, #d97706, #10b981);
+            border-radius: 9999px;
+        }
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 2rem;
+            }
+        }
+        /* FAQ Accordion Styling */
+        .faq-accordion-container {
+            max-width: 52rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .accordion-title {
+            text-align: center;
+            font-family: Georgia, Cambria, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+        }
+        .accordion-item {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #2563eb;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+        }
+        .accordion-item[open] {
+            border-color: #2563eb;
+            border-left-width: 6px;
+            box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.15);
+        }
+        .accordion-title {
+            text-align: center;
+            font-family: Georgia, Cambria, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2rem;
+        }
+        .accordion-item {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+        }
+        .accordion-item[open] {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px -2px rgba(37, 99, 235, 0.12);
+        }
+        .accordion-header {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            list-style: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .accordion-header::-webkit-details-marker {
+            display: none;
+        }
+        .accordion-header:hover {
+            background-color: #f8fafc;
+            color: #1d4ed8;
+        }
+        .question-text {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            padding-right: 1rem;
+        }
+        .accordion-icon {
+            position: relative;
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background-color: #64748b;
+            border-radius: 2px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .accordion-icon::before {
+            top: 9px;
+            left: 2px;
+            width: 16px;
+            height: 2px;
+        }
+        .accordion-icon::after {
+            top: 2px;
+            left: 9px;
+            width: 2px;
+            height: 16px;
+        }
+        .accordion-item[open] .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-item[open] .accordion-icon::after {
+            transform: rotate(90deg);
+            background-color: #2563eb;
+        }
+        .accordion-item[open] .accordion-icon::before {
+            background-color: #2563eb;
+        }
+        .accordion-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 0.25rem;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed selection:bg-brand-500 selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                
+                <!-- Brand / Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full bg-brand-800 text-amber-400 flex items-center justify-center font-bold text-base shadow-sm group-hover:bg-brand-700 transition">
+                        SG
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-base tracking-tight text-slate-900 group-hover:text-brand-600 transition leading-tight">Srushti Govilkar</span>
+                        <span class="text-xs text-slate-500 font-medium">Strategic Communication & CSR Academic</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                    <a href="#about" class="hover:text-brand-600 transition py-1">About</a>
+                    <a href="#experience" class="hover:text-brand-600 transition py-1">Experience</a>
+                    <a href="#research" class="hover:text-brand-600 transition py-1">Research & Writing</a>
+                    <a href="#achievements" class="hover:text-brand-600 transition py-1">Impact</a>
+                    <a href="#qualifications" class="hover:text-brand-600 transition py-1">Education</a>
+                    <a href="#insights" class="hover:text-brand-600 transition py-1">Insights</a>
+                    <a href="#contact" class="px-4 py-2 bg-brand-800 text-white rounded-lg hover:bg-brand-700 transition shadow-sm font-semibold">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" class="block py-2 text-slate-600 hover:text-brand-600 transition">About</a>
+            <a href="#experience" class="block py-2 text-slate-600 hover:text-brand-600 transition">Experience</a>
+            <a href="#research" class="block py-2 text-slate-600 hover:text-brand-600 transition">Research & Writing</a>
+            <a href="#achievements" class="block py-2 text-slate-600 hover:text-brand-600 transition">Impact</a>
+            <a href="#qualifications" class="block py-2 text-slate-600 hover:text-brand-600 transition">Education</a>
+            <a href="#insights" class="block py-2 text-slate-600 hover:text-brand-600 transition">Insights</a>
+            <a href="#contact" class="block py-2 text-brand-600 font-semibold">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="relative overflow-hidden bg-slate-950 text-white py-16 lg:py-24">
+        <!-- Ambient Decorative Glows -->
+        <div class="ambient-glow w-96 h-96 bg-blue-600 -top-20 -left-20"></div>
+        <div class="ambient-glow w-80 h-80 bg-amber-500 bottom-0 right-10"></div>
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left: Typography & CTAs -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-500/20 border border-brand-400/30 text-amber-300 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                        <span>PhD Candidate (Thesis Submitted) &bull; ICMC 2025 Best Paper Winner</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif text-white leading-[1.15]">
+                        Bridging <span class="text-amber-400 italic font-normal">Academic Rigor</span> & <span class="text-blue-400">Strategic Communication</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-light leading-relaxed">
+                        Specialist in CSR & Sustainability Communication, Qualitative Research, and Generative AI-Assisted Storytelling paired with corporate client leadership.
+                    </p>
+
+                    <!-- Core Expertise Chips -->
+                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-1 text-xs">
+                        <span class="px-3 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10 font-medium">CSR & Sustainability</span>
+                        <span class="px-3 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10 font-medium">Strategic PR & Content</span>
+                        <span class="px-3 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10 font-medium">GenAI Storytelling</span>
+                        <span class="px-3 py-1 rounded-md bg-white/10 text-slate-200 border border-white/10 font-medium">Client Strategy</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                        <a href="#research" class="px-6 py-3.5 bg-amber-500 text-slate-950 font-bold rounded-xl shadow-lg hover:bg-amber-400 hover:shadow-amber-500/20 transition-all flex items-center space-x-2 transform hover:-translate-y-0.5">
+                            <i data-lucide="book-open" class="w-5 h-5"></i>
+                            <span>Explore Research</span>
+                        </a>
+                        <a href="#experience" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 rounded-xl transition-all flex items-center space-x-2">
+                            <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            <span>Career Experience</span>
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all flex items-center space-x-2 shadow-md">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Visual Identity Profile Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md bg-gradient-to-b from-slate-800/90 to-slate-900/90 backdrop-blur-xl rounded-2xl p-6 border border-slate-700/80 shadow-2xl relative">
+                        <div class="absolute -top-3 -right-3 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[11px] font-extrabold uppercase px-3 py-1 rounded-full shadow-md tracking-wider flex items-center space-x-1">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>Dual Perspective</span>
+                        </div>
+
+                        <!-- Avatar Initials & Header -->
+                        <div class="flex items-center space-x-4 mb-6 pb-6 border-b border-slate-700/60">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-amber-500 text-white flex items-center justify-center font-serif text-2xl font-bold shadow-lg ring-2 ring-white/20 flex-shrink-0">
+                                SG
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white font-serif">Srushti Govilkar</h3>
+                                <p class="text-xs text-amber-400 font-medium">Strategic Communication & CSR Academic</p>
+                                <span class="inline-flex items-center text-[11px] text-slate-400 mt-1">
+                                    <i data-lucide="map-pin" class="w-3 h-3 mr-1 text-slate-400"></i> India &bull; Global Remote
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Key Visual Impact Metrics Grid -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 text-center hover:border-amber-400/50 transition">
+                                <div class="flex items-center justify-center text-amber-400 mb-1">
+                                    <i data-lucide="graduation-cap" class="w-4 h-4 mr-1"></i>
+                                    <span class="text-2xl font-bold font-serif">1,800+</span>
+                                </div>
+                                <div class="text-[11px] font-semibold text-slate-300">Students Mentored</div>
+                                <div class="text-[10px] text-slate-400">1-on-1 Feedback</div>
+                            </div>
+
+                            <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 text-center hover:border-blue-400/50 transition">
+                                <div class="flex items-center justify-center text-blue-400 mb-1">
+                                    <i data-lucide="file-text" class="w-4 h-4 mr-1"></i>
+                                    <span class="text-2xl font-bold font-serif">28+</span>
+                                </div>
+                                <div class="text-[11px] font-semibold text-slate-300">Authored Articles</div>
+                                <div class="text-[10px] text-slate-400">GCC & Industry Insights</div>
+                            </div>
+
+                            <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 text-center hover:border-amber-400/50 transition">
+                                <div class="flex items-center justify-center text-amber-400 mb-1">
+                                    <i data-lucide="trophy" class="w-4 h-4 mr-1"></i>
+                                    <span class="text-2xl font-bold font-serif">ICMC '25</span>
+                                </div>
+                                <div class="text-[11px] font-semibold text-slate-300">Best Paper Award</div>
+                                <div class="text-[10px] text-slate-400">Gen Z Social Responsibility</div>
+                            </div>
+
+                            <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 text-center hover:border-blue-400/50 transition">
+                                <div class="flex items-center justify-center text-blue-400 mb-1">
+                                    <i data-lucide="book-marked" class="w-4 h-4 mr-1"></i>
+                                    <span class="text-2xl font-bold font-serif">PhD</span>
+                                </div>
+                                <div class="text-[11px] font-semibold text-slate-300">Thesis Submitted</div>
+                                <div class="text-[10px] text-slate-400">GTU Management</div>
+                            </div>
+                        </div>
+
+                        <!-- Status Footer -->
+                        <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
+                                Available for Leadership & Advisory
+                            </span>
+                            <a href="#contact" class="text-amber-400 hover:text-amber-300 font-semibold flex items-center">
+                                Connect <i data-lucide="chevron-right" class="w-3 h-3 ml-0.5"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- CORE COMPETENCIES & VISUAL SKILL MATRIX -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase font-bold text-brand-600 tracking-widest mb-2">Dual Perspective Expertise</h2>
+                <h3 class="text-3xl font-bold font-serif text-slate-900 sm:text-4xl">Blending Corporate Strategy with Academic Research</h3>
+                <p class="mt-4 text-slate-600 leading-relaxed">
+                    Srushti Govilkar possesses a unique profile that seamlessly connects scholarly research in Corporate Social Responsibility (CSR), Individual Social Responsibility (ISR), and Communication with real-world public relations, content leadership, and client strategy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all duration-300 hover:-translate-y-1 group shadow-sm hover:shadow-md">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors shadow-sm">
+                        <i data-lucide="megaphone" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Strategic Communication & Servicing</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Multi-channel strategy aligning PR, social media, and executive positioning with client ROI and strategic objectives.</p>
+                    <div class="space-y-1.5 pt-2 border-t border-slate-200/80">
+                        <div class="flex justify-between text-[11px] font-semibold text-slate-600">
+                            <span>Client Strategy & PR</span>
+                            <span class="text-brand-600">95%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-brand-600 h-1.5 rounded-full w-[95%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 group shadow-sm hover:shadow-md">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500 group-hover:text-white transition-colors shadow-sm">
+                        <i data-lucide="file-search" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">CSR & Social Impact Research</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Empirical studies in CSR, historical roots of philanthropy, Gen Z social responsibility frameworks, and impact reporting.</p>
+                    <div class="space-y-1.5 pt-2 border-t border-slate-200/80">
+                        <div class="flex justify-between text-[11px] font-semibold text-slate-600">
+                            <span>CSR & Qualitative Research</span>
+                            <span class="text-amber-600">92%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-amber-500 h-1.5 rounded-full w-[92%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all duration-300 hover:-translate-y-1 group shadow-sm hover:shadow-md">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors shadow-sm">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">GenAI & Digital Content</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Leveraging cutting-edge Generative AI tools for communication drafting, visual storytelling, SEO content, and critical evaluation.</p>
+                    <div class="space-y-1.5 pt-2 border-t border-slate-200/80">
+                        <div class="flex justify-between text-[11px] font-semibold text-slate-600">
+                            <span>GenAI & Storytelling</span>
+                            <span class="text-brand-600">90%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-brand-600 h-1.5 rounded-full w-[90%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-amber-500 transition-all duration-300 hover:-translate-y-1 group shadow-sm hover:shadow-md">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500 group-hover:text-white transition-colors shadow-sm">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Pedagogy & Curriculum Audit</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">Designing post-graduate level session plans, evaluations, case studies, and conducting corporate masterclasses.</p>
+                    <div class="space-y-1.5 pt-2 border-t border-slate-200/80">
+                        <div class="flex justify-between text-[11px] font-semibold text-slate-600">
+                            <span>Higher Education Pedagogy</span>
+                            <span class="text-amber-600">96%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-amber-500 h-1.5 rounded-full w-[96%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK & ACADEMIC EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-20 bg-slate-100 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs uppercase font-bold text-brand-600 tracking-widest mb-2">Career Trajectory</h2>
+                    <h3 class="text-3xl font-bold font-serif text-slate-900">Professional Experience</h3>
+                </div>
+                <!-- Interactive Tabs -->
+                <div class="mt-4 md:mt-0 inline-flex p-1 bg-slate-200/80 backdrop-blur-sm rounded-xl border border-slate-300/60">
+                    <button id="tab-all" onclick="filterExperience('all')" class="exp-tab px-4 py-2 text-xs font-bold rounded-lg bg-white text-slate-900 shadow-sm transition">All Roles</button>
+                    <button id="tab-industry" onclick="filterExperience('industry')" class="exp-tab px-4 py-2 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 transition">Industry</button>
+                    <button id="tab-academia" onclick="filterExperience('academia')" class="exp-tab px-4 py-2 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 transition">Academia & Research</button>
+                    <button id="tab-training" onclick="filterExperience('training')" class="exp-tab px-4 py-2 text-xs font-bold rounded-lg text-slate-600 hover:text-slate-900 transition">Training & Consulting</button>
+                </div>
+            </div>
+
+            <!-- Connected Visual Timeline Container -->
+            <div class="timeline-container pl-8 md:pl-12 space-y-8">
+
+                <!-- Role 1: Industry -->
+                <div class="exp-item industry bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 relative group">
+                    <!-- Timeline Node Icon -->
+                    <div class="absolute -left-8 md:-left-12 top-6 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-md ring-4 ring-slate-100 group-hover:scale-110 transition-transform">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div>
+                            <span class="inline-block px-2.5 py-1 text-[11px] font-bold rounded-md bg-blue-100 text-blue-800 mb-1">Industry Leadership</span>
+                            <h4 class="text-xl font-bold text-slate-900">Senior Associate - Client Servicing</h4>
+                            <p class="text-sm font-semibold text-brand-700">Gnothi Seauton</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-200/80 rounded-full flex items-center">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> May 2025 - June 2026
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                        <li><strong>Strategy Development:</strong> Aligned multi-channel communication strategies (PR, social, content) with core client goals.</li>
+                        <li><strong>Client Relations:</strong> Lead contact for strategic partnerships across Educational Institutions, Adaptive Fashion Brands, Not-for-Profits, and Sustainability solution providers.</li>
+                        <li><strong>Generative AI & Content:</strong> Leveraged GenAI tools to draft storytelling content and visuals; managed press releases, blogs, and marketing collateral.</li>
+                        <li><strong>Analytics & ROI:</strong> Tracked communication performance using data tools to provide actionable client insights.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 2: Industry -->
+                <div class="exp-item industry bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 relative group">
+                    <!-- Timeline Node Icon -->
+                    <div class="absolute -left-8 md:-left-12 top-6 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-md ring-4 ring-slate-100 group-hover:scale-110 transition-transform">
+                        <i data-lucide="edit-3" class="w-4 h-4"></i>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div>
+                            <span class="inline-block px-2.5 py-1 text-[11px] font-bold rounded-md bg-blue-100 text-blue-800 mb-1">Editorial & Strategy</span>
+                            <h4 class="text-xl font-bold text-slate-900">Assistant Editor</h4>
+                            <p class="text-sm font-semibold text-brand-700">The GCC Hub <span class="text-xs text-slate-500 font-normal">(Strategic Partner Organization of Gnothi Seauton)</span></p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-blue-50 text-blue-700 border border-blue-200/80 rounded-full flex items-center">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> 2025 - Current
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                        <li>Research, decode, and analyze data regarding Global Capability Centres (GCCs) in India.</li>
+                        <li>Draft featured articles with strong SEO integration; authored 28+ articles on GCC workforce playbooks and annual sector reports.</li>
+                        <li>Conduct interviews with C-suite leaders in GCC companies, manage LinkedIn social media presence, and staff podcast productions.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 3: Academia -->
+                <div class="exp-item academia bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 relative group">
+                    <!-- Timeline Node Icon -->
+                    <div class="absolute -left-8 md:-left-12 top-6 w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md ring-4 ring-slate-100 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div>
+                            <span class="inline-block px-2.5 py-1 text-[11px] font-bold rounded-md bg-amber-100 text-amber-800 mb-1">Academia & Higher Education</span>
+                            <h4 class="text-xl font-bold text-slate-900">Research Associate</h4>
+                            <p class="text-sm font-semibold text-brand-700">MICA - The School of Ideas</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-amber-50 text-amber-800 border border-amber-200/80 rounded-full flex items-center">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> March 2018 - 2025 (84 Months)
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-3 font-medium bg-slate-50 p-2.5 rounded-lg border border-slate-200/60">
+                        <strong class="text-slate-700">Key Courses:</strong> Strategic Communication, Public Relation Strategies in Digital World (Basic & Advanced)
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                        <li>Researched top global university curricula to design session plans, reading materials, business case studies, and simulations.</li>
+                        <li>Managed end-to-end course execution and audited course performance to continuously enhance learning outcomes.</li>
+                        <li>Delivered detailed 1-on-1 and group evaluation feedback to over 1,400+ MICA students across 7 years.</li>
+                        <li>Coordinated academic support for the Centre for Development and Management Communication (CDMC).</li>
+                    </ul>
+                </div>
+
+                <!-- Role 4: Academia -->
+                <div class="exp-item academia bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 relative group">
+                    <!-- Timeline Node Icon -->
+                    <div class="absolute -left-8 md:-left-12 top-6 w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-md ring-4 ring-slate-100 group-hover:scale-110 transition-transform">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div>
+                            <span class="inline-block px-2.5 py-1 text-[11px] font-bold rounded-md bg-amber-100 text-amber-800 mb-1">Academia</span>
+                            <h4 class="text-xl font-bold text-slate-900">Teaching Assistant</h4>
+                            <p class="text-sm font-semibold text-brand-700">Amrut Mody School of Management (AMSOM), Ahmedabad University</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-amber-50 text-amber-800 border border-amber-200/80 rounded-full flex items-center">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> June 2017 - Dec 2017
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-600 list-disc list-inside">
+                        <li>Assisted in integrated and post-graduate level management courses: Managerial Communication, Business Ethics, and Culture & Communication.</li>
+                        <li>Provided direct feedback and academic support to 200+ students.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 5: Training & Consulting -->
+                <div class="exp-item training bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 relative group">
+                    <!-- Timeline Node Icon -->
+                    <div class="absolute -left-8 md:-left-12 top-6 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md ring-4 ring-slate-100 group-hover:scale-110 transition-transform">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+                        <div>
+                            <span class="inline-block px-2.5 py-1 text-[11px] font-bold rounded-md bg-emerald-100 text-emerald-800 mb-1">Corporate Consulting & Faculty</span>
+                            <h4 class="text-xl font-bold text-slate-900">Visiting Faculty & Executive Communication Trainer</h4>
+                            <p class="text-sm font-semibold text-brand-700">PDEU, Adani, Tata IIS, PhiBonacci Solutions</p>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200/80 rounded-full flex items-center">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5"></i> 2020 - 2024
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 pt-2">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-800 block mb-1">Visiting Faculty & Guest Lectures</span>
+                            Flagship MBA & Executive MBA at Pandit Deendayal Energy University (PDEU); Guest lecture at NIT Pondicherry.
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-800 block mb-1">Corporate POSH & Communication</span>
+                            Co-conducted POSH training for 35+ senior executives at Adani Corporate House; Business Communication for Intas & Zenoti.
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-800 block mb-1">Tata IIS Skill Training</span>
+                            Communication trainer for Certification in Pantry Skills & Core Housekeeping (2022-2023).
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-800 block mb-1">Strategic Consulting</span>
+                            Communication Curator & Strategist at PhiBonacci Solutions Pvt. Ltd. (2022).
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & PUBLICATIONS SECTION -->
+    <section id="research" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs uppercase font-bold text-brand-600 tracking-widest mb-2">Scholarly Output & Thought Leadership</h2>
+                <h3 class="text-3xl font-bold font-serif text-slate-900 sm:text-4xl">Publications, Book Chapters & Industry Writing</h3>
+                <p class="mt-3 text-slate-600">Research focusing on Indian CSR dynamics, Gen Z social responsibility frameworks, digital strategic communication, and business history.</p>
+                
+                <div class="mt-5">
+                    <a href="https://scholar.google.com/citations?user=ulnISW0AAAAJ&hl=en" target="_blank" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-brand-50 border border-brand-200 text-brand-700 hover:bg-brand-100 text-xs font-bold rounded-xl transition shadow-sm hover:shadow">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-600"></i>
+                        <span>View Verified Profile on Google Scholar</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Featured Highlight: Best Paper Award Banner -->
+            <div class="mb-12 bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 rounded-2xl p-6 sm:p-8 text-slate-950 flex flex-col md:flex-row items-center gap-6 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="w-16 h-16 rounded-2xl bg-slate-950 text-amber-400 flex-shrink-0 flex items-center justify-center font-bold text-2xl shadow-lg">
+                    <i data-lucide="trophy" class="w-8 h-8"></i>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <span class="px-3 py-1 bg-slate-950 text-amber-300 text-[10px] font-extrabold uppercase rounded-full tracking-wider inline-block mb-1">Best Paper Winner &bull; ICMC 2025</span>
+                    <h4 class="text-2xl font-bold font-serif tracking-tight text-slate-950">Perception of Generation Z towards Individual Social Responsibility (ISR) and Corporate Social Responsibility (CSR)</h4>
+                    <p class="text-slate-900 text-xs sm:text-sm font-medium mt-1">
+                        Awarded at the International Communication Management Conference (MICA, Ahmedabad).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Research Search / Filter Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterResearch('all')" id="res-all" class="res-filter px-4 py-2 text-xs font-bold rounded-xl bg-brand-800 text-white shadow-sm transition">All Works</button>
+                    <button onclick="filterResearch('journals')" id="res-journals" class="res-filter px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Refereed Journals</button>
+                    <button onclick="filterResearch('books')" id="res-books" class="res-filter px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Books & Chapters</button>
+                    <button onclick="filterResearch('industry')" id="res-industry" class="res-filter px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Industry Articles (28+)</button>
+                    <button onclick="filterResearch('conferences')" id="res-conferences" class="res-filter px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Conferences</button>
+                </div>
+            </div>
+
+            <!-- Publication Items Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Journal 1 (Inderscience / DOI) -->
+                <div class="res-card journals bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-brand-100 text-brand-800"><i data-lucide="book-open" class="w-3 h-3 mr-1"></i> Journal Article</span>
+                            <span>2025</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Delineating Philanthropy and Responsibility in Parsi Businesses: An Analysis Across Timelines</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Authors:</strong> Srushti Govilkar, Sarika Srivastava, Ruchi Tewari</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3">International Journal of Indian Culture and Business Management (IJICBM), Vol. 36 (4), pp. 448–465, 2025.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">DOI: 10.1504/IJICBM.2025.150427</span>
+                        <div class="flex items-center space-x-2">
+                            <a href="https://doi.org/10.1504/IJICBM.2025.150427" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800 hover:underline">
+                                <span>Publisher Article</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                            </a>
+                            <span class="text-slate-300">|</span>
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ulnISW0AAAAJ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-slate-600 hover:text-brand-600 hover:underline">
+                                <span>Scholar</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journal 2 (BORI) -->
+                <div class="res-card journals bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-brand-100 text-brand-800"><i data-lucide="book-open" class="w-3 h-3 mr-1"></i> Journal Article</span>
+                            <span>2024</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Historical Rooting and Cultural Underpinnings of Individual and Corporate Social Responsibility in India – A Literature Review</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Authors:</strong> Srushti Govilkar, Sarika Srivastava</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3">Annals of the Bhandarkar Oriental Research Institute, pp. 138–150, 2024.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">Print Edition (BORI)</span>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ulnISW0AAAAJ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800 hover:underline">
+                            <span>Google Scholar Citation</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Journal 3 (Zenodo / DOI) -->
+                <div class="res-card journals bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-brand-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-brand-100 text-brand-800"><i data-lucide="book-open" class="w-3 h-3 mr-1"></i> Journal Article</span>
+                            <span>July 2026</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Perspective of Generation Z on Social Responsibility: A Strategic Communication Framework</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Authors:</strong> Srushti Govilkar</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3">Economic Empirical Letters</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">DOI: 10.5281/zenodo.22059744</span>
+                        <a href="https://doi.org/10.5281/zenodo.22059744" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800 hover:underline">
+                            <span>Access Full Paper (Zenodo)</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Book Chapter 1 (Emerald Publishing) -->
+                <div class="res-card books bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-amber-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-amber-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-amber-100 text-amber-800"><i data-lucide="bookmark" class="w-3 h-3 mr-1"></i> Book Chapter</span>
+                            <span>2023</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">COVID-19 Induced Shift in CSR: An Empirical Investigation</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Authors:</strong> Taral Pathak, Srushti Govilkar, Ruchi Tewari</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3"><em>Innovation, Social Responsibility and Sustainability</em>, Emerald Publishing Limited, Chapter 6.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">Emerald Books</span>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ulnISW0AAAAJ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-amber-700 hover:text-amber-900 hover:underline">
+                            <span>Scholar Citation</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Book Chapter 2 (Springer) -->
+                <div class="res-card books bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-amber-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-amber-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-amber-100 text-amber-800"><i data-lucide="bookmark" class="w-3 h-3 mr-1"></i> Springer Chapter</span>
+                            <span>2023</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Greenstraw: A Social Enterprise Practicing and Promoting Sustainability</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Authors:</strong> Srushti Govilkar, Kritika Jaiswal, Ruchi Tewari, Aatman Shukla</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3"><em>Preparing for a Sustainable Future</em>, Springer Publications, pp. 65–84, 2023.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">Springer Book Chapter</span>
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=ulnISW0AAAAJ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-amber-700 hover:text-amber-900 hover:underline">
+                            <span>Scholar Citation</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Book Support -->
+                <div class="res-card books bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-amber-500 transition-all hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-amber-700 font-bold mb-2">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded bg-amber-100 text-amber-800"><i data-lucide="book" class="w-3 h-3 mr-1"></i> Published Book Support</span>
+                            <span>October 2025</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Strategic Communication for Impactful Partnership</h4>
+                        <p class="text-xs text-slate-600 mb-2"><strong>Role:</strong> Co-editorial & Editorial Support</p>
+                        <p class="text-xs text-slate-500 font-serif italic mb-3">Supported primary authors in core structure, synthesis, and research drafting.</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-mono text-[11px]">Academic Publishing</span>
+                        <a href="https://scholar.google.com/citations?user=ulnISW0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-semibold text-amber-700 hover:text-amber-900 hover:underline">
+                            <span>View Profile</span> <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FOOTER -->
+    <footer id="contact" class="bg-slate-950 text-white py-16 relative overflow-hidden">
+        <div class="ambient-glow w-80 h-80 bg-brand-600 bottom-0 left-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-2xl sm:text-3xl font-bold font-serif mb-3">Let's Connect & Collaborate</h2>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm mb-8">
+                Interested in strategic communication consulting, research collaboration, guest lectures, or strategic PR initiatives? Reach out directly.
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-4 mb-12">
+                <a href="mailto:srushtigovilkar94@gmail.com" class="inline-flex items-center px-6 py-3.5 bg-brand-600 hover:bg-brand-500 text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-lg hover:shadow-brand-500/20">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    <span>srushtigovilkar94@gmail.com</span>
+                </a>
+                <a href="tel:+919974128428" class="inline-flex items-center px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold rounded-xl transition-all border border-slate-800">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                    <span>+91-9974128428</span>
+                </a>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-8 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Srushti Govilkar. All rights reserved.</p>
+                <p class="text-slate-400 font-medium">Strategic Communication &bull; CSR Scholar &bull; Client Servicing Lead</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Experience Filter Script
+        function filterExperience(type) {
+            const items = document.querySelectorAll('.exp-item');
+            const tabs = document.querySelectorAll('.exp-tab');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                tab.classList.add('text-slate-600');
+            });
+
+            const activeTab = document.getElementById('tab-' + type);
+            if (activeTab) {
+                activeTab.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                activeTab.classList.remove('text-slate-600');
+            }
+
+            items.forEach(item => {
+                if (type === 'all' || item.classList.contains(type)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Research Filter Script
+        function filterResearch(type) {
+            const cards = document.querySelectorAll('.res-card');
+            const buttons = document.querySelectorAll('.res-filter');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-800', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            const activeBtn = document.getElementById('res-' + type);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-brand-800', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            }
+
+            cards.forEach(card => {
+                if (type === 'all' || card.classList.contains(type)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
